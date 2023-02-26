@@ -1,0 +1,7 @@
+6 Ways to loop through an array:
+1. for loop
+2. while loop
+3. for of loop
+4. do while loop
+5. forEach loop
+6. map() method

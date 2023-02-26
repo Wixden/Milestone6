@@ -1,0 +1,12 @@
+List of what we learned in this module:
+1. map()
+2. filter()
+3. find()
+4. forEach()
+5. chaining
+6. reduce()
+7. notation
+8. class
+9. extends
+10. super
+11. (Must understand) Prototypical Inheritance.

@@ -1,34 +1,69 @@
-const loadUser = () => {
-  fetch("https://www.themealdb.com/api/json/v1/1/search.php?f=f")
+const loadUser = (searchText) => {
+  const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${searchText}`;
+  fetch(url)
     .then((res) => res.json())
-    .then((data) => displayUser(data));
+    .then((data) => displayFood(data.meals));
 };
 
-const displayUser = (user) => {
-  const userContainer = document.getElementById("user-container");
-  const cardBody = document.createElement("div");
-  cardBody.classList.add("card", "shadow-xl", "my-10");
-  cardBody.innerHTML = `
-  <figure class="px-10 pt-10">
-    <img class="rounded-full"
-      src="${user.results[0].picture.large}"
-      alt="Album"
-    />
-  </figure>
-  <div class="card-body items-center text-center">
-    <h2 class="card-title mb-5 font-bold">User Details</h2>
-    <p><b>Name:</b> ${
-      user.results[0].name.first + " " + user.results[0].name.last
-    }</p>
-    <p><b>User Name:</b> ${user.results[0].login.username} </p>
-    <p><b>Phone:</b> ${user.results[0].phone}</p>
-    <p><b>Email:</b> ${user.results[0].email}</p>
-    <p><b>Address:</b> ${
-      user.results[0].location.city + ", " + user.results[0].location.country
-    }</p>
+const displayFood = (foods) => {
+  const userContainer = document.getElementById("food-container");
+  userContainer.innerHTML = "";
+  for (const food of foods) {
+    const cardBody = document.createElement("div");
+    cardBody.classList.add("card", "shadow-xl", "border", "p-10");
+    cardBody.innerHTML = `
+    <figure>
+      <img class="rounded-lg"
+        src="${food.strMealThumb}"
+        alt="Album"
+      />
+    </figure>
+    <div class="card-body items-center text-center ">
+      <h2 class="card-title mb-2 font-bold">${food.strMeal}</h2>
+      <p>Category: ${food.strCategory}</p>
+      <p>Origin: ${food.strArea}</p>
+      <p>Tags: ${food.strTags}</p>
+      <label onclick="loadRecipe(${food.idMeal})" for="my-modal" class="btn mt-5 bg-blue-500 text-white px-8">Open Recipe</label>
+    </div>
+    
+    `;
+    userContainer.appendChild(cardBody);
+  }
+};
+
+const searchItems = () => {
+  const searchInput = document.getElementById("searchInput");
+  // console.log(searchInput);
+  loadUser(searchInput.value);
+  searchInput.value = "";
+};
+
+const loadRecipe = (idMeal) => {
+  const url = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${idMeal}`;
+  fetch(url)
+    .then((res) => res.json())
+    .then((data) => displayRecipe(data.meals[0]));
+};
+
+const displayRecipe = (recipe) => {
+  const recipeContainer = document.getElementById("recipe-container");
+  recipeContainer.innerHTML = `
+  <figure>
+      <img class="rounded-lg"
+        src="${recipe.strMealThumb}"
+        alt="Album"
+      />
+    </figure>
+  <h3 class="font-bold text-xl text-center mt-5">
+    Recipe For: ${recipe.strMeal}
+  </h3>
+  <p class="py-4">
+    ${recipe.strInstructions}
+  </p>
+  <div class="modal-action">
+    <label for="my-modal" class="btn">Close</label>
   </div>
   `;
-  userContainer.appendChild(cardBody);
 };
 
-loadUser();
+loadUser("chicken");

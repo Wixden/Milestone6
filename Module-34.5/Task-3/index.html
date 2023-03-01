@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Display Country Dynamically using Filter | Task 3</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <main>
+      <section>
+        <div class="container mx-auto my-20">
+          <div class="flex justify-end">
+            <label for="region" class="hidden">Select By Region</label>
+            <select
+              name="region"
+              id="region"
+              class="shadow-md border border-gray-300 px-8 py-4 rounded-md"
+            >
+              <option value="all">All</option>
+              <option value="Asia">Asia</option>
+              <option value="Africa">Africa</option>
+              <option value="Antarctic">Antarctic</option>
+              <option value="Europe">Europe</option>
+              <option value="Americas">Americas</option>
+              <option value="Oceania">Oceania</option>
+            </select>
+          </div>
+          <div
+            id="country__container"
+            class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-10 mt-10"
+          ></div>
+        </div>
+      </section>
+    </main>
+    <!-- JS FILES -->
+    <script src="./app.js"></script>
+    <!-- <script src="./js/test.js"></script> -->
+  </body>
+</html>

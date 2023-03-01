@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tasty Hut | API PRACTICE</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@2.51.1/dist/full.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      #recipe__container::-webkit-scrollbar {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="py-8 px-5">
+      <div class="container mx-auto max-w-7xl">
+        <nav class="flex justify-between items-center">
+          <div>
+            <a href="./" class="text-2xl font-bold text-gray-600">TASTY HUT</a>
+          </div>
+          <div>
+            <button
+              type="button"
+              class="px-10 py-4 bg-amber-500 text-black text-lg font-bold rounded-md"
+            >
+              SIGN UP
+            </button>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- Main Section -->
+    <main>
+      <section>
+        <!-- Banner Section -->
+        <div
+          class="bg-cover bg-center"
+          style="background-image: url(./images/banner_1.png)"
+        >
+          <div class="bg-black/50 flex justify-center items-center h-[80vh]">
+            <!-- Banner Content -->
+            <div class="text-center text-gray-100">
+              <h1 class="text-7xl font-bold">
+                Taste Our Delicious <br />
+                Best Foods
+              </h1>
+              <p class="text-xl mt-6">
+                There are many variations of passages of Lorem Ipsum available,
+                but the majority have <br />
+                suffered alteration in some form, by injected humou.
+              </p>
+              <div class="md:flex justify-center items-center mt-8 text-black">
+                <input
+                  type="text"
+                  placeholder="Search Any Food"
+                  id="search__input"
+                  class="w-3/4 px-10 py-4 text-xl font-semibold md:rounded-tl-md md:rounded-bl-md mb-3 md:mb-0"
+                />
+                <button
+                  type="submit"
+                  id="search__btn"
+                  onclick="searchItem()"
+                  class="px-10 py-4 bg-amber-500 text-black text-xl font-bold md:rounded-r-md md:rounded-br-md"
+                >
+                  Search
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Favorite Section -->
+      <section class="my-28">
+        <div class="container mx-auto max-w-7xl">
+          <h1 class="text-4xl font-bold text-center text-gray-700">
+            Your Favorite Food:
+          </h1>
+          <div
+            class="grid grid-cols1 md:grid-cols-2 mt-14 gap-10"
+            id="food__container"
+          >
+            <!-- Food Item -->
+          </div>
+          <div class="mt-12 flex justify-center">
+            <button
+              type="button"
+              id="loadMore__btn"
+              class="px-10 py-4 bg-amber-500 text-black text-xl font-bold rounded-md"
+            >
+              Load More
+            </button>
+          </div>
+        </div>
+
+        <!-- Open Modal -->
+        <!-- The button to open modal -->
+        <input type="checkbox" id="my-modal-6" class="modal-toggle" />
+        <div class="modal modal-bottom sm:modal-middle">
+          <div
+            class="modal-box w-11/12 max-w-screen-sm relative"
+            for=""
+            id="recipe__container"
+          ></div>
+        </div>
+      </section>
+    </main>
+
+    <!-- JS FILES -->
+    <script src="./js/app.js"></script>
+  </body>
+</html>

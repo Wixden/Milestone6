@@ -9,7 +9,10 @@ const shop = {
   name: "Tech Shop",
   owner: "Abdul Ali",
   address: {
-    street: "Luton",
+    street: {
+      houseNo: 23,
+      road: "Luton",
+    },
     city: "London",
     country: "UK",
   },

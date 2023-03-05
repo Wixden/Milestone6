@@ -59,38 +59,38 @@ const displayFood = (foods) => {
   } */
 };
 
-const displayAllFood = (foods) => {
-  const foodContainer = document.getElementById("food__container");
-  foodContainer.innerHTML = "";
-  for (const food of foods) {
-    const foodItem = document.createElement("div");
-    foodItem.classList.add("card", "card-side", "bg-base-100", "shadow-xl");
-    foodItem.innerHTML = `    
-    <figure>
-      <img
-        src="${food.strMealThumb}"
-        alt=""
-        class="w-80 h-96 rounded-tl-lg rounded-bl-lg"
-      />
-    </figure>
-    <div class="card-body justify-center">
-      <h2 class="card-title font-bold">${food.strMeal}</h2>
-      <div class="text-lg mt-3 space-y-2">
-        <p><b>Origin:</b> ${food.strArea}</p>
-        <p><b>Tags:</b> chicken, indian, asian</p>
-        <p><b>Category:</b> Main Dish</p>
-        <p><b>Ingredients: </b> Chicken, Onion, Potato,</p>
-      </div>
-      <div class="card-actions">
-      <label for="my-modal-6"
-      onclick="loadRecipe(${food.idMeal})"
-      class="py-5 text-amber-500 text-xl font-bold underline">View Recipe</label>
-      </div>      
-    </div>
-    `;
-    foodContainer.appendChild(foodItem);
-  }
-};
+// const displayAllFood = (foods) => {
+//   const foodContainer = document.getElementById("food__container");
+//   foodContainer.innerHTML = "";
+//   for (const food of foods) {
+//     const foodItem = document.createElement("div");
+//     foodItem.classList.add("card", "card-side", "bg-base-100", "shadow-xl");
+//     foodItem.innerHTML = `
+//     <figure>
+//       <img
+//         src="${food.strMealThumb}"
+//         alt=""
+//         class="w-80 h-96 rounded-tl-lg rounded-bl-lg"
+//       />
+//     </figure>
+//     <div class="card-body justify-center">
+//       <h2 class="card-title font-bold">${food.strMeal}</h2>
+//       <div class="text-lg mt-3 space-y-2">
+//         <p><b>Origin:</b> ${food.strArea}</p>
+//         <p><b>Tags:</b> chicken, indian, asian</p>
+//         <p><b>Category:</b> Main Dish</p>
+//         <p><b>Ingredients: </b> Chicken, Onion, Potato,</p>
+//       </div>
+//       <div class="card-actions">
+//       <label for="my-modal-6"
+//       onclick="loadRecipe(${food.idMeal})"
+//       class="py-5 text-amber-500 text-xl font-bold underline">View Recipe</label>
+//       </div>
+//     </div>
+//     `;
+//     foodContainer.appendChild(foodItem);
+//   }
+// };
 
 // Show result according to search
 const searchItem = () => {

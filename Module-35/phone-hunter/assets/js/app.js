@@ -12,6 +12,7 @@ const displayAllData = (phones) => {
 
   // No Data found
   const noPhone = document.getElementById("not__found");
+  // Check for the phones length
   if (phones.length === 0) {
     noPhone.classList.remove("d-none");
   } else {
